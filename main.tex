@@ -16,23 +16,29 @@
 \section{Solution and problem domain}
 Citizens have the possibility to apply for loss of earnings. Loss of earnings means, that the earnings the citizen has missed out on, due to being occupied of taking care of a child. There are many actors involved when the citizen apply for loss of earnings. First off, there is the case-worker, who receives the application from the citizen. The case-worker is working at a municipality council. The municipality council has to comply with the law and paragraph 42 and the rules that are provided from the ministry of social affairs.
 
+\vspace{2mm}
+
 The ministry of social affairs lay down the rules of:
 (1) How big a possible cap of allowed compensation is.
 (2) How much the pension scheme is obligated to contribute with. (3) How the calculation of the actual compensation is made. (4) What the limit is of how much the pension scheme is obligated to contribute with. (5) How much of the loss on the pension contribution shall be paid by the receiver and municipal council.
 
+\vspace{2mm}
+
 As mentioned, the case-workers handles the cases and receives all the necessary information, for complying with paragraph 42. First of, the case-worker has to establish, if there are grounds for compensation. (1) The child has to be under 18. (2) The conditions on the child's health have to abide by the law, for that the child's health record has to be collected from the health care system. The health record has to confirm, that it is most expedient for the mother or father to the care of the child, at home or has been placed in care under section 52(3)(vii). If that is the case, the condition is, that it is most expedient for a parent to be there. It might be difficult to establish, if that is the case, based on the health record, if it is not explicitly stated, therefore it might be necessary to collect a confirmation by the child's doctor. (3) Loss of income has to be established, for that the necessary bank statements have to be provided.
 
-Our solution is concerned with case management. We have to provide a platform for collecting, recording the progress and the final decisions that have been made and what grounds there has been for them. The following actors are directly involved in our system: (1) the citizen, (2) the case-worker, (3) the minister of social affairs(external system), (4) the law that decides if the citizen is permitted for loss of earnings, (5) the payment system(external system), that is available for the municipal council. Our solutions will handle the information gathering. Storing the information relevant for the case. The final decision whether or not the citizen has been granted compensation and calculating the amount granted for payout to both the citizen and pension scheme, based on the numbers provided by the minister of social affairs.
+\vspace{2mm}
+
+Our solution is concerned with case management. We have to provide a platform for collecting, recording the progress and the final decisions that have been made and what grounds there has been for them. The following actors are directly involved in our system: (1) the citizen, (2) the case-worker, (3) the minister of social affairs(external system), (4) the law that decides if the citizen is permitted for loss of earnings, (5) the payment system(external system), that is available for the municipal council. Our solution will handle the information gathering and storing. It resolves applications by an unbiased majority vote and calculates the compensation amount based on the numbers provided by the minister of social affairs.
 
 \section{Scenarios}
 
 \subsection*{Application approved}
 
-Alice, a parent, has a child with a serious chronic illness. She logs into the OCM system as a citizen and fills out a form, as well as attaching any relevant documentation. Once finished, she submits the application. There does not exist any prior applications from Alice, so the system annotates it as a new case.
+Alice, a parent, has a child with a serious chronic illness. She logs into the OCM system as a citizen, fills out a form, attaches any relevant documentation and submits the application. There does not exist any prior applications from Alice, so the system annotates it as a new case.
 
 \vspace{2mm}
 
-The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He validates its authenticity. He processes the application through the system's user interface. He approves and submits the application.
+The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He validates documentation authenticity and data entered in form by Alice. He approves and submits the application.
 
 \vspace{2mm}
 
@@ -40,48 +46,91 @@ The system assigns the application to another caseworker Charles. He processes t
 
 \vspace{2mm}
 
-With approvals from two random caseworkers, the system calculates the compensation based on the data contained in the application. The system sends a response to Alice's e-mail that her application was approved, including the details regarding her compensation. The system archives the application.
+With approvals from two random caseworkers, the system annotate the case as approved and calculates the compensation based on the data contained in the application. The system sends a response to Alice's e-mail that her application was approved, including the details regarding her compensation. The system archives the case.
 
 \subsection*{Application rejected}
-\begin{enumerate}
-    \item Alice, a parent, has a child with a serious fever. 
-    \item Alice sends an application for "loss of earnings" through the OCM system.
-    \item The system assigns the application to caseworker Bob.
-    \item Bob validates the legitimacy of the application.
-    \item Bob realize, that Alice's child does not meet the requirements for the illness.
-    \item Bob rejects the case.
-    \item Bob sends an email to Alice and informing her about the rejection and the cause. 
-\end{enumerate}
 
+Alice, a parent, has a child with a fever. She logs into the OCM system as a citizen, fills out a form, attaches any relevant documentation and submits the application. There does not exist any prior applications from Alice, so the system annotates it as a new case.
+
+\vspace{2mm}
+
+The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He validates documentation authenticity. The applicant is not eligible for compensation, so he rejects and submits the application.
+
+\vspace{2mm}
+
+The system assigns the application to another caseworker Charles. He concludes the same as Bob. Charles also rejects and submits the application.
+
+\vspace{2mm}
+
+With rejections from two random caseworkers, the system annotate the case as rejected. The system sends a response to Alice's e-mail that her application was rejected. The system archives the case.
+
+\subsection*{Disputed application approval}
+
+Alice, a parent, has a child with an ambiguous illness in the context of "loss of earnings" legislation. She logs into the OCM system as a citizen, fills out a form, attaches any relevant documentation and submits the application. There does not exist any prior applications from Alice, so the system annotates it as a new case.
+
+\vspace{2mm}
+
+The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He validates documentation authenticity and data entered in form by Alice. He approves and submits the application.
+
+\vspace{2mm}
+
+The system assigns the application to another caseworker Charles. He validates documentation authenticity and data entered in form by Alice. He rejects and submits the application.
+
+\vspace{2mm}
+
+With an approval and rejection, the system assigns the application to yet another caseworker Diana. She validates documentation authenticity and data entered in form by Alice. She approves and submits the application.
+
+\vspace{2mm}
+
+With approvals from two random caseworkers, the system annotate the case as approved and calculates the compensation based on the data contained in the application. The system sends a response to Alice's e-mail that her application was approved, including the details regarding her compensation. The system archives the case.
 
 \subsection*{Inquire additional information from applicant}
-\begin{enumerate}
-    \item Alice, a parent, has a child with a serious long-term disease.
-    \item Alice sends an application for "loss of earnings" through the OCM system. 
-    \item The system assigns the application to caseworker Bob.
-    \item Bob validates the legitimacy of the application.
-    \item Bob realize, that the application is missing a doctor confirmation. 
-    \item Bob puts the case on-hold.
-    \item Bob sends an email to Alice requesting a doctor confirmation.
-    \item Alice provides the doctor confirmation.
-    \item Bob validates the legitimacy of the application.
-    \item The system calculates compensation based on data from form. 
-    \item Bob approves the application.
-    \item The system saves the application and any additional notes Bob has attached.
-    \item The system sends a response to Alice's e-mail that her application was approved. 
-\end{enumerate}
 
-\subsection*{Illegitimate application}
-\begin{enumerate}
-    \item Alice, a parent, stayed home for two days because of her child had the flu. 
-    \item Alice sends an application for "loss of earnings" through the OCM system.
-    \item The system assigns the application to caseworker Bob.
-    \item Bob approves the application, without validating the legitimacy of the application.
-    \item The system saves the application and any additional notes Bob has attached.
-    \item The system sends a response to Alice's e-mail that her application was approved.
-\end{enumerate}
+Alice, a parent, has a child with a serious chronic illness. She logs into the OCM system as a citizen, fills out a form inadequately and submits the application. There does not exist any prior applications from Alice, so the system annotates it as a new case.
+
+\vspace{2mm}
+
+The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. The application is filled out inadequately, so he writes an e-mail to Alice and inquire about missing information. He sets the case on hold and waits for a response from applicant. Alice responds to inquiry with requested data. Bob adds missing data to case, resumes its progress, approves the application and submit it to the system.
+
+\vspace{2mm}
+
+The system assigns the application to another caseworker Charles. The case now contains the additional information added by Bob. Charles validate the contained data, approves the application and submits it.
+
+\vspace{2mm}
+
+With approvals from two random caseworkers, the system annotate the case as approved and calculates the compensation based on the data contained in the application. The system sends a response to Alice's e-mail that her application was approved, including the details regarding her compensation. The system archives the case.
+
+\subsection*{Illegitimate application approval}
+
+Alice, a parent, has a child with a fever. She logs into the OCM system as a citizen, fills out a form, attaches any relevant documentation and submits the application. There does not exist any prior applications from Alice, so the system annotates it as a new case.
+
+\vspace{2mm}
+
+The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He approves without validating contents and submits the application.
+
+\vspace{2mm}
+
+The system assigns the application to another caseworker Charles. He also approves the application without validating its contents and submits it.
+
+\vspace{2mm}
+
+With approvals from two random caseworkers, the system annotate the case as approved and calculates the compensation based on the data contained in the application. The system sends a response to Alice's e-mail that her application was approved, including the details regarding her compensation. The system archives the case.
 
 \subsection*{Duplicate application approved}
+
+Alice, a parent, has forgot she already receives "loss of earnings" compensation for her child. She logs into the OCM system as a citizen and fills out a form, attaches any relevant documentation and submits the application. There exist prior applications from Alice, so the system annotates it as a duplicate case.
+
+\vspace{2mm}
+
+The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He approves without noticing this is a duplicate case and submits the application.
+
+\vspace{2mm}
+
+The system assigns the application to another caseworker Charles. He also approves the application without noticing this is a duplicate case and submits it.
+
+\vspace{2mm}
+
+With approvals from two random caseworkers, the system annotate the case as approved and calculates the compensation based on the data contained in the application. The system sends a response to Alice's e-mail that her application was approved, including the details regarding her compensation. The system archives the case.
 
 \section{Functional requirements}
 
@@ -93,19 +142,39 @@ The caseworker can make an overview of all unprocessed cases, approval cases and
 If the caseworker takes an unprocessed case, the person will be presented with all the provided documents from the applicant. If the caseworker decides the documents are falsified, he changes the status to falsified and either gets unassigned from the case or takes further action by contacting the legal authorities and provide all the necessary information, that is requested. After the falsification is handled, the case change status to prosecuted.
 
 After the verification of the authenticity of the documents, the caseworker decides if the doctor confirmation is confirming that the legal requirements of the child's health status is met and the necessary conditions are present. 
-If the conditions are not met, the application gets rejected and the caseworker can send an email directly from the system to the applicant with the  rejection and cause of the decision. 
+If the conditions are not met, the application gets rejected. 
 If the documents provided does not fulfill the necessary conditions, the caseworker can send an email directly from the system to the applicant, requesting the necessary documents for further processing of the application.
 
-When satisfactory is met and all the conditions and legal documents are met, the caseworker inputs all the relevant information to the system from the documents.
+When satisfactory is met and all the conditions and legal documents are met, the caseworker goes on to verify that the inputted numbers are correct.
 
 If the caseworker picks an approval case, that is not handled by the caseworker himself. The caseworker goes through all documents provided and verifies that the applicant is permitted for loss of earnings. The caseworker goes on to verify that the inputted numbers are correct.
+If the caseworker decides, that the applicant is not permitted for loss of earnings, the caseworker sets the case to rejected.
 
-If the caseworker decides, that the applicant is not permitted for loss of earnings, the caseworker sets the case to rejected approval. 
+If the caseworker decides, that the applicant is permitted for loss of earning, the caseworker sets the case to approved.
+
+---
+
+The applicant is presented with a form, that contains all the required input fields and required fields for document upload. After submitting the application the applicant will receive an email from the system confirming the submission.
+
+If the application needs some information, the applicant would receive a request per email and a link to the formula with the information that is previously provided. The application now has the possibility to input the requested information. 
+
+If the application is rejected, the applicant receives cause of rejection per email.
+
+If the application is approved, the applicant receives the acceptance confirmation per email. 
+
+---
+
+If the application is rejected or accepted twice, the system would send the decision to the applicant and archive the case. 
+
+---
+
+The supervisor can make an overview of all open cases and all archived cases. The supervisor can inspect the current information that belongs to a case and what caseworker it is assigned to.
 
 \section{Non-functional requirements}
+\label{sec:nfr}
 
 \subsection{Availability}
-There should be an availability of 99.99\%.
+Allowed downtime is one hour a month.
 
 \subsection{Usability}
 The software has to be easily usable.
@@ -129,20 +198,20 @@ The software should be only available in Danish.
 \subsection{Persistence}
 The software has to guarantee data integrity in atleast 5 years.
 
+\newpage
 \section{Use case diagram}
-
-% to do: extend
-
-\begin{figure}[htb!]
+\begin{figure}[hbt!]
 	\includegraphics[width=\textwidth]{img/use-cases}
+	\caption{Use case diagram}
 \end{figure}
 
-
+\newpage
 \section{Detailed Use cases}
 
 \subsection{UC01: A high-end end-to-end case workflow}
 
-\begin{tabularx}{\textwidth}{l|l}
+\begin{table}[htb!]
+\begin{tabularx}{\textwidth}{l|X}
 	\textbf{Use Case name} & A high-end end-to-end case workflow \\
 	\hline
 	\textbf{Participating actor} & Caseworker, User, OCM\\
@@ -150,55 +219,98 @@ The software has to guarantee data integrity in atleast 5 years.
 	\textbf{Flow of events} &
 	\begin{minipage}{\linewidth}
 		\begin{enumerate}
-			\item asds
+			\item User creates application for loss of earnings,provides all needed information.
+			\item Caseworker receives application, processes it and approves it.
+			\item OCM sends email about the the approval of the application
+			\item Calculation of compensation will be made by OCM
+			\item OCM sets application on done\\
 		\end{enumerate} 
 	\end{minipage}\\
 	\hline
-	\textbf{Entry condition} & \\
+	\textbf{Extensions} & 
+	\begin{minipage}{\linewidth}
+	    \begin{enumerate}
+	        \setcounter{enumi}{1}
+	        \item \begin{enumerate}
+	            \item Caseworker rejects application
+	            \item OCM sends mail of rejection
+	        \end{enumerate}
+	    \end{enumerate}
+	\end{minipage}\\
 	\hline
-	\textbf{Exit condition} & \\
+	\textbf{Entry condition} &
+	Caseworker is logged in
+	\\
 	\hline
-	\textbf{Quality requirements} & \\
+	\textbf{Exit condition} & 
+	\begin{minipage}{\linewidth}
+	\begin{enumerate}
+	    \item Caseworker is logged out
+	\end{enumerate}
+	\end{minipage}
+	\\
+	\hline
+	\textbf{Quality requirements} & See non-functional requirements in section \ref{sec:nfr}\\
 \end{tabularx}
-
+\end{table}
 
 
 \subsection{UC02: A citizen applying}
 
-\begin{tabularx}{\textwidth}{l|l}
-	\textbf{Use Case name} & A high-end end-to-end case workflow \\
+\begin{table}[htb!]
+\begin{tabularx}{\textwidth}{l|X}
+	\textbf{Use Case name} & A citizen applying \\
 	\hline
-	\textbf{Participating actor} & \\
+	\textbf{Participating actor} & User, OCM\\
 	\hline
-	\textbf{Flow of events} & \\
+	\textbf{Flow of events} & 
+	\begin{minipage}{\linewidth}
+	    \begin{enumerate}
+	        \item User visits the portal
+	        \item User initiates the process for applying loss of earnings
+	        \item User fills out all the necessary information needed in the form
+	        \item User uploads all required documentation
+	        \item User uploads a doctor confirmation
+	    \end{enumerate}
+	\end{minipage}\\
 	\hline
-	\textbf{Entry condition} & \\
+	\textbf{Entry condition} & User is logged in\\
 	\hline
-	\textbf{Exit condition} & \\
+	\textbf{Exit condition} & User saves the application and logs out\\
 	\hline
-	\textbf{Quality requirements} & \\
+	\textbf{Quality requirements} & See non-functional requirements in section \ref{sec:nfr}\\
 \end{tabularx}
+\end{table}
 
 \subsection{UC03: A case worker processing a case}
-\begin{tabularx}{\textwidth}{l|l}
-	\textbf{Use Case name} & A high-end end-to-end case workflow \\
+\begin{table}[htb!]
+\begin{tabularx}{\textwidth}{l|X}
+	\textbf{Use Case name} & A case worker processing a case \\
 	\hline
-	\textbf{Participating actor} & \\
+	\textbf{Participating actor} & Caseworker, OCM\\
 	\hline
-	\textbf{Flow of events} & \\
+	\textbf{Flow of events} & 
+	\begin{minipage}{\linewidth}
+	    \begin{enumerate}
+	        \item Caseworker opens a newly opened application
+	        \item Caseworker checks the documentation to be legitimate (including the provided doctor confirmation)
+	        \item Caseworker approves application
+	        \item OCM calculates 
+	    \end{enumerate}
+	\end{minipage}\\
 	\hline
-	\textbf{Entry condition} & \\
+	\textbf{Entry condition} & Caseworker is logged in\\
 	\hline
 	\textbf{Exit condition} & \\
 	\hline
-	\textbf{Quality requirements} & \\
+	\textbf{Quality requirements} & See non-functional requirements in section \ref{sec:nfr}\\
 \end{tabularx}
+\end{table}
 
-\subsection{UCX: ...}
-
+\newpage
 \section{Architecture model}
 
-
+\newpage
 \section{Project plan}
 
 \subsection{Team composition/roles}
@@ -249,7 +361,7 @@ As the project methodology SCRUM will be used, so after each Sprint there will b
 \end{table}
 
 \subsection{Risks}
-
+\begin{table}[htb!]
 \begin{tabularx}{\textwidth}{llllXX}
 \textbf{Nr} & \textbf{Description} & \textbf{Probability} & \textbf{Criticality} & \textbf{Prevention}                                                      & \textbf{Measure}                                                                             \\
 \hline
@@ -257,6 +369,6 @@ R1          & Worker gets sick     & 10\%                 & high                
             &                      &                      &                      &                                                                          &                                                                                              \\
             &                      &                      &                      &                                                                          &                                                                                             
 \end{tabularx}
-
+\end{table}
 
 \end{document}

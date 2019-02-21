@@ -2,13 +2,12 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english, science, small]{ku-frontpage}
 \usepackage{tabularx}
+\usepackage{indentfirst}
 
-\title{Software Engineering: First hand in}
-\subtitle{}
-\assignment{First hand in}
+\title{Software Engineering}
+\subtitle{First hand-in}
 \author{Matias Korn(crd551), Samuel Korn(rxq534), Nikolin Prenga (hpq143), Silvan Adrian (zlp432)}
-\advisor{}
-\date{February 2019}
+\date{\today}
 
 \begin{document}
 
@@ -27,47 +26,98 @@ Our solution is concerned with case management. We have to provide a platform fo
 
 \section{Scenarios}
 
-- Case with parents apply for loss of earnings.
+\subsection*{Application approved}
 
-- case with municipality receiving possible loss of earnings from hospital and needs to get processed.
+Alice, a parent, has a child with a serious chronic illness. She logs into the OCM system as a citizen and fills out a form, as well as attaching any relevant documentation. Once finished, she submits the application. There does not exist any prior applications from Alice, so the system annotates it as a new case.
 
-\subsection{Scenario 1 - Application from parent(s)}
+\vspace{2mm}
+
+The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He validates its authenticity. He processes the application through the system's user interface. He approves and submits the application.
+
+\vspace{2mm}
+
+The system assigns the application to another caseworker Charles. He processes the application in the same manner as Bob and submits it once it is approved.
+
+\vspace{2mm}
+
+With approvals from two random caseworkers, the system calculates the compensation based on the data contained in the application. The system sends a response to Alice's e-mail that her application was approved, including the details regarding her compensation. The system archives the application.
+
+\subsection*{Application rejected}
 \begin{enumerate}
-    \item Parent is making an application.
-    \item Case-worker is validating the application.
-        \begin{enumerate}
-            \item The case-worker is confirming that the doctor confirmation is not falsified.
-            \item The case-worker is confirming that the required payslip is provided and not falsified. 
-            \item The case-worker is confirming that the required pension-scheme contract is provided and not falsified.
-        \end{enumerate}
-    \item Case-worker is documenting and archiving all the provided information. 
-    \item Case-worker is accepting the application. 
-    \item Case-worker send response about the outcome of the application.
-    \item Case-worker send off the amount and the amount of months for payout to the payment system. 
+    \item Alice, a parent, has a child with a serious fever. 
+    \item Alice sends an application for "loss of earnings" through the OCM system.
+    \item The system assigns the application to caseworker Bob.
+    \item Bob validates the legitimacy of the application.
+    \item Bob realize, that Alice's child does not meet the requirements for the illness.
+    \item Bob rejects the case.
+    \item Bob sends an email to Alice and informing her about the rejection and the cause. 
 \end{enumerate}
 
-\subsection{Scenario 2 - Application with additional requests}
 
-\subsection{Scenario 3 - Receiving information from the hospital}
+\subsection*{Inquire additional information from applicant}
+\begin{enumerate}
+    \item Alice, a parent, has a child with a serious long-term disease.
+    \item Alice sends an application for "loss of earnings" through the OCM system. 
+    \item The system assigns the application to caseworker Bob.
+    \item Bob validates the legitimacy of the application.
+    \item Bob realize, that the application is missing a doctor confirmation. 
+    \item Bob puts the case on-hold.
+    \item Bob sends an email to Alice requesting a doctor confirmation.
+    \item Alice provides the doctor confirmation.
+    \item Bob validates the legitimacy of the application.
+    \item The system calculates compensation based on data from form. 
+    \item Bob approves the application.
+    \item The system saves the application and any additional notes Bob has attached.
+    \item The system sends a response to Alice's e-mail that her application was approved. 
+\end{enumerate}
 
-\section{functional requirements}
+\subsection*{Illegitimate application}
+\begin{enumerate}
+    \item Alice, a parent, stayed home for two days because of her child had the flu. 
+    \item Alice sends an application for "loss of earnings" through the OCM system.
+    \item The system assigns the application to caseworker Bob.
+    \item Bob approves the application, without validating the legitimacy of the application.
+    \item The system saves the application and any additional notes Bob has attached.
+    \item The system sends a response to Alice's e-mail that her application was approved.
+\end{enumerate}
+
+\subsection*{Duplicate application approved}
+
+\section{Functional requirements}
+
+% reviewing of the cases by another caseworker before processing the loss of earnings. 
+% funtionelle ting som er målbare!!!!
+
+The caseworker can make an overview of all unprocessed cases, approval cases and ongoing cases that is assigned to the caseworker. Caseworker takes an unprocessed case, approval case or pick one of his existing cases that is ongoing.
+
+If the caseworker takes an unprocessed case, the person will be presented with all the provided documents from the applicant. If the caseworker decides the documents are falsified, he changes the status to falsified and either gets unassigned from the case or takes further action by contacting the legal authorities and provide all the necessary information, that is requested. After the falsification is handled, the case change status to prosecuted.
+
+After the verification of the authenticity of the documents, the caseworker decides if the doctor confirmation is confirming that the legal requirements of the child's health status is met and the necessary conditions are present. 
+If the conditions are not met, the application gets rejected and the caseworker can send an email directly from the system to the applicant with the  rejection and cause of the decision. 
+If the documents provided does not fulfill the necessary conditions, the caseworker can send an email directly from the system to the applicant, requesting the necessary documents for further processing of the application.
+
+When satisfactory is met and all the conditions and legal documents are met, the caseworker inputs all the relevant information to the system from the documents.
+
+If the caseworker picks an approval case, that is not handled by the caseworker himself. The caseworker goes through all documents provided and verifies that the applicant is permitted for loss of earnings. The caseworker goes on to verify that the inputted numbers are correct.
+
+If the caseworker decides, that the applicant is not permitted for loss of earnings, the caseworker sets the case to rejected approval. 
 
 \section{Non-functional requirements}
 
-Note (Matias): fault tolerant system for secure and stable persisting.
-
 \subsection{Availability}
-There should be an availability of 99.99%.
+There should be an availability of 99.99\%.
 
 \subsection{Usability}
 The software has to be easily usable.
 
 \subsection{Accessibility}
+The software should be accessible for people with disabilities. 
 
 \subsection{Maintainability}
-The Software should be easily to maintain.
+The software should be easily to maintain.
 
 \subsection{Security}
+The system needs to uphold the GDPR legislation.
 No one should have access on data he/she has no access rights on.
 
 \subsection{Scalability}
@@ -75,6 +125,9 @@ Should be able to be used by many concurrent users without delay.
 
 \subsection{Language}
 The software should be only available in Danish.
+
+\subsection{Persistence}
+The software has to guarantee data integrity in atleast 5 years.
 
 \section{Use case diagram}
 
@@ -154,7 +207,7 @@ The software should be only available in Danish.
 \begin{itemize}
 	\item SCRUM Master %otherwise won't make much sense of having a project team without a scrum master
 \end{itemize}
-\textbf{Matthias Korn}
+\textbf{Matias Korn}
 \begin{itemize}
 	\item Developer
 \end{itemize}
@@ -171,7 +224,7 @@ The software should be only available in Danish.
 %fill up
 \begin{table}[htb!]
 \begin{tabular}{lllll}
- \textbf{Skill}  & \textbf{Silvan} & \textbf{Matthias} & \textbf{Jonathan} & \textbf{Nikolin} \\
+ \textbf{Skill}  & \textbf{Silvan} & \textbf{Matias} & \textbf{Samuel} & \textbf{Nikolin} \\
 \hline
 Development       &                 &                   &                   &                  \\
 Project Management &                 &                   &                   &                  \\

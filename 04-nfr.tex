@@ -1,0 +1,68 @@
+\newpage
+\section{Non-functional requirements}
+\label{sec:nfr}
+\begin{table}[htb!]
+\begin{tabularx}{\textwidth}{l|X}
+	\textbf{Category} & \textbf{Nonfucntional Requirements} \\
+	\hline
+	\textbf{Availability} & 
+	    \begin{compactitem}
+	        \item Tolerated application downtime is one hour a month.
+	    \end{compactitem}\\
+	\hline
+	\textbf{Usability} &
+	    \begin{compactitem}
+	        \item People with no training should able to use the software and finish an application within 20 minutes.
+	    \end{compactitem}\\
+	\hline
+	\textbf{Accessibility} & 
+	\begin{compactitem}
+	    \item The software should be accessible for people with disabilities by following the WCAG 2.1 standard.
+	\end{compactitem}\\
+	\hline
+	\textbf{Maintainability} &
+	    \begin{compactitem}
+	        \item The cyclomatic complexity of code must not exceed 7.
+	        \item Methods should not exceed 100 lines of code.
+	        \item Installation of a new Version shall eave all database content and personal user settings unchanged.
+	    \end{compactitem}\\
+	\hline
+	\textbf{Performance} &
+	\begin{compactitem}
+        \item Pages should be loaded in between 2-6 Seconds.
+	\end{compactitem}\\
+	\hline
+	\textbf{Testability} &
+	    \begin{compactitem}
+	        \item The system should include unit tests that ensure line coverage of 80\%.
+	        \item The system should include End to End tests to ensure all happy paths are covered.
+	    \end{compactitem}\\
+	\hline
+	\textbf{Security} & 
+		\begin{compactitem}
+    	        \item The system needs to uphold the GDPR legislation.
+    	        \item No one should have access on data he/she has no access rights on.
+	    \end{compactitem}\\
+	\hline
+	\textbf{Scalability} & 
+	    \begin{compactitem}
+    	    \item Should be able to be used by at least 100 concurrent users without delay.
+		\end{compactitem}\\
+	\hline
+	\textbf{Modifiablity} & 
+	\begin{compactitem}
+        \item No text that might be displayed to a user shall reside in source code
+	\end{compactitem}\\
+	\hline
+	\textbf{Language} & 
+	    \begin{compactitem}
+	        \item The software should be only available in Danish.
+	    \end{compactitem}\\
+	\hline
+	\textbf{Persistence} & 
+	\begin{compactitem}
+	    \item The software has to guarantee data integrity in at least 5 years.
+	\end{compactitem}\\
+	\hline
+\end{tabularx}
+\end{table}

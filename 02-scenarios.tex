@@ -1,0 +1,119 @@
+\newpage
+\section{Scenarios}
+\todo[inline]{Add an additional from the user/parent points of view not too focused on caseworker only}
+\subsection*{Application approved}
+\begin{table}[htb!]
+\begin{tabularx}{\textwidth}{l|X}
+	\textbf{Scenario name} & Application approved \\
+	\hline
+	\textbf{Participating actor instances} & Alice:applicant, Bob:caseworker\\
+	\hline
+	\textbf{Flow of events} &
+	\begin{compactenum}
+			\item Alice, a parent, has a child with a serious chronic illness. She logs into the OCM system as a citizen, fills out a form, attaches any relevant documentation and submits the application. There does not exist any prior applications from Alice, so the system annotates it as a new case.
+			\item The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He validates documentation authenticity and data entered in form by Alice. He approves and submits the application.
+			\item The system assigns the application to another caseworker Charles. He processes the application in the same manner as Bob and submits it once it is approved.
+			\item With approvals from two random caseworkers, the system annotate the case as approved and calculates the compensation based on the data contained in the application. The system sends a response to Alice's e-mail that her application was approved, including the details regarding her compensation. The system archives the case.
+    \end{compactenum}\\
+	\hline
+\end{tabularx}
+\end{table}
+
+
+\subsection*{Application rejected}
+\begin{table}[htb!]
+\begin{tabularx}{\textwidth}{l|X}
+	\textbf{Scenario name} & Application rejected \\
+	\hline
+	\textbf{Participating actor instances} & Alice:applicant, Bob:caseworker, Charles:CaseWorker\\
+	\hline
+	\textbf{Flow of events} &
+	\begin{compactenum}
+	       \item Alice is a parent that has a child suffering from fever. She logs into the OCM system as a citizen, fills out the application form, attaches any relevant documentation and submits the application. There does not exist any prior applications from Alice, hence the system annotates it as a new case.
+           \item  The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He validates documentation authenticity. The applicant is not eligible for compensation, so he rejects and submits the application.
+           \item The system assigns the application to another caseworker Charles. He concludes the same as Bob. Charles also rejects and submits the application.
+	        \item With rejections from two random caseworkers, the system annotate the case as rejected. The system sends a response to Alice's e-mail that her application was rejected. The system archives the case.
+	\end{compactenum}\\
+	\hline
+\end{tabularx}
+\end{table}
+
+\newpage
+\subsection*{Disputed application approval}
+\begin{table}[htb!]
+\begin{tabularx}{\textwidth}{l|X}
+	\textbf{Scenario name} & Disputed application approval \\
+	\hline
+	\textbf{Participating actor instances} & Alice:applicant, Bob:caseworker, Charles:Caseworker\\
+	\hline
+	\textbf{Flow of events} &
+	\begin{compactenum}
+	        \item Alice, a parent, has a child with an ambiguous illness in the context of "loss of earnings" legislation. She logs into the OCM system as a citizen, fills out a form, attaches any relevant documentation and submits the application. There does not exist any prior applications from Alice, so the system annotates it as a new case.
+	        \item The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He validates documentation authenticity and data entered in form by Alice. He approves and submits the application.
+	        \item The system assigns the application to another caseworker Charles. He validates documentation authenticity and data entered in form by Alice. He rejects and submits the application.
+	        \item With an approval and rejection, the system assigns the application to yet another caseworker Diana. She validates documentation authenticity and data entered in form by Alice. She approves and submits the application.
+	        \item With approvals from two random caseworkers, the system annotate the case as approved and calculates the compensation based on the data contained in the application. The system sends a response to Alice's e-mail that her application was approved, including the details regarding her compensation. The system archives the case.
+	   	\end{compactenum}\\
+	\hline
+\end{tabularx}
+\end{table}
+
+\newpage
+\subsection*{Inquire additional information from applicant}
+\begin{table}[htb!]
+\begin{tabularx}{\textwidth}{l|X}
+	\textbf{Scenario name} & Inquire additional information from applicant \\
+	\hline
+	\textbf{Participating actor instances} & Alice:applicant, Bob:caseworker, Charles:Caseworker\\
+	\hline
+	\textbf{Flow of events} &
+	\begin{compactenum}
+	        \item Alice, a parent, has a child with a serious chronic illness. She logs into the OCM system as a citizen, fills out a form inadequately and submits the application. There does not exist any prior applications from Alice, so the system annotates it as a new case.
+	        \item The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. The application is filled out inadequately, so he writes an e-mail to Alice and inquire about missing information. He sets the case on hold and waits for a response from applicant. 
+	        \item Alice responds to inquiry with requested data. 
+	        \item Bob adds missing data to case, resumes its progress, approves the application and submit it to the system.
+	        \item The system assigns the application to another caseworker Charles. The case now contains the additional information added by Bob. Charles validate the contained data, approves the application and submits it.
+	        \item With approvals from two random caseworkers, the system annotate the case as approved and calculates the compensation based on the data contained in the application. The system sends a response to Alice's e-mail that her application was approved, including the details regarding her compensation. The system archives the case.
+	\end{compactenum}\\
+	\hline
+\end{tabularx}
+\end{table}
+
+\newpage
+\subsection*{Illegitimate application approval}
+\begin{table}[htb!]
+\begin{tabularx}{\textwidth}{l|X}
+	\textbf{Scenario name} &  Illegitimate application approval\\
+	\hline
+	\textbf{Participating actor instances} & Alice:applicant, Bob:caseworker, Charles:Caseworker\\
+	\hline
+	\textbf{Flow of events} &
+	\begin{compactenum}
+	        \item Alice, a parent, has a child with a fever. She logs into the OCM system as a citizen, fills out a form, attaches any relevant documentation and submits the application. There does not exist any prior applications from Alice, so the system annotates it as a new case.
+	        \item The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He approves without validating contents and submits the application.
+            \item The system assigns the application to another caseworker Charles. He also approves the application without validating its contents and submits it.
+            \item With approvals from two random caseworkers, the system annotate the case as approved and calculates the compensation based on the data contained in the application. The system sends a response to Alice's e-mail that her application was approved, including the details regarding her compensation. The system archives the case.
+            \item this should not happen blah blah blah and what went wrong
+	\end{compactenum}\\
+	\hline
+\end{tabularx}
+\end{table}
+
+\newpage
+\subsection*{Duplicate application approved}
+\begin{table}[htb!]
+\begin{tabularx}{\textwidth}{l|X}
+	\textbf{Scenario name} &  Duplicate application approved\\
+	\hline
+	\textbf{Participating actor instances} & Alice:applicant, Bob:caseworker, Charles:Caseworker\\
+	\hline
+	\textbf{Flow of events} &
+    \begin{compactenum}
+	        \item Alice, a parent, has forgot she already receives "loss of earnings" compensation for her child. She logs into the OCM system as a citizen and fills out a form, attaches any relevant documentation and submits the application. There exist prior applications from Alice, so the system annotates it as a duplicate case.
+	        \item The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He approves without noticing this is a duplicate case and submits the application.
+	        \item The system assigns the application to another caseworker Charles. He also approves the application without noticing this is a duplicate case and submits it.
+	        \item With approvals from two random caseworkers, the system annotate the case as approved and calculates the compensation based on the data contained in the application. The system sends a response to Alice's e-mail that her application was approved, including the details regarding her compensation. The system archives the case.
+    \end{compactenum}\\
+	\hline
+\end{tabularx}
+\end{table}

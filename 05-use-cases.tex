@@ -17,32 +17,27 @@
 	\textbf{Participating actor} & Caseworker, User\\
 	\hline
 	\textbf{Flow of events} &
+	\vspace{-2mm}
 	\begin{compactenum}
 			\item User creates application for loss of earnings,provides all needed information.
 			\item Caseworker receives application, processes it and approves it.
-			\item OCM sends email about the the approval of the application
-			\item Calculation of compensation will be made by OCM
-			\item OCM sets application on done
+			\item The system sends an email about the the approval of the application
+			\item Calculation of compensation will be made by the system.
+			\item The system sets application on done.
 	\end{compactenum}\\
 	\hline
 	\textbf{Extensions} & 
+		\vspace{-2mm}
 	    \begin{compactenum}
 	        \setcounter{enumi}{1}
-	        \item \begin{compactenum}
-	            \item Caseworker rejects application
-	            \item OCM sends mail of rejection
-	        \end{compactenum}
+	        \item See Use case reject application
 	    \end{compactenum}\\
 	\hline
 	\textbf{Entry condition} &
 	Caseworker is logged in
 	\\
 	\hline
-	\textbf{Exit condition} & 
-	\begin{compactenum}
-	    \item Caseworker is logged out
-	\end{compactenum}
-	\\
+	\textbf{Exit condition} & Caseworker is logged out\\
 	\hline
 	\textbf{Quality requirements} & See non-functional requirements in section \ref{sec:nfr}\\
 \end{tabularx}
@@ -56,13 +51,13 @@
 	\hline
 	\textbf{Participating actor} & User\\
 	\hline
-	\textbf{Flow of events} & 
+	\textbf{Flow of events} &
+		\vspace{-2mm}
 	    \begin{compactenum}
 	        \item User visits the portal
 	        \item User initiates the process for applying loss of earnings
 	        \item User fills out all the necessary information needed in the form
 	        \item User uploads all required documentation
-	        \item User uploads a doctor confirmation
 	    \end{compactenum}\\
 	\hline
 	\textbf{Entry condition} & User is logged in\\
@@ -86,12 +81,20 @@
 	        \item Caseworker opens a newly opened application
 	        \item Caseworker checks the documentation to be legitimate (including the provided doctor confirmation)
 	        \item Caseworker approves application
-	        \item OCM calculates 
+	        \item The system calculates the compensation
+	        \item When the calculations are done, then the system will set the application on done
+	    \end{compactenum}\\
+	\hline
+	\textbf{Extensions} & 
+	    \vspace{-2mm}
+	    \begin{compactenum}
+	        \setcounter{enumi}{2}
+	        \item See Use case reject application
 	    \end{compactenum}\\
 	\hline
 	\textbf{Entry condition} & Caseworker is logged in\\
 	\hline
-	\textbf{Exit condition} & \\
+	\textbf{Exit condition} & Caseworker has finished the case\\
 	\hline
 	\textbf{Quality requirements} & See non-functional requirements in section \ref{sec:nfr}\\
 \end{tabularx}

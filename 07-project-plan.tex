@@ -49,30 +49,80 @@ Legal & \large{\faCheckCircleO} & &  &  & & & & \faCircle \\
 \end{table}
 
 \subsection{Work Packages}
-% just a graph or actually some coding involved?
 
+\begin{table}[htb!]
+    \begin{tabularx}{\textwidth}{l|X}
+        \textbf{Work Package} & \textbf{Work items} \\
+        \hline
+        Applicant frontend & 
+        \begin{compactitem}
+            \item Login form
+            \item Form with required fields
+            \item File upload
+            \item Design test cases
+            \item Frontend design
+        \end{compactitem}\\
+        \hline
+        Caseworker frontend & 
+        \begin{compactitem}
+            \item Login form
+            \item Case Oveview lists
+            \item Case detail view
+            \item Design test cases
+            \item Frontend design
+        \end{compactitem}\\
+        \hline
+        Backend & 
+        \begin{compactitem}
+            \item Case endpoint
+            \item Authentication endpoint
+        \end{compactitem}\\
+        \hline
+    \end{tabularx}
+\end{table}
+% just a graph or actually some coding involved?
+\newpage
 \subsection{Schedule}
 As the project methodology SCRUM will be used, so after each Sprint there will be  working increment released.
 
-\todo[inline]{(add more sprints, technically agile -> endless until it's done}
 \begin{table}[htb!]
-\begin{tabular}{lll}
+\begin{tabular}{l|l|l}
 \textbf{Sprint} & \textbf{Sprint Goal} & \textbf{Date} \\
 \hline
-1      & Set Up Infrastructure & xx.xx \\
-2      & Do more etc.          &            \\
-3       &                       &           
+1 & Set Up Infrastructure & 01.04.2019 \\
+\hline
+2 & Backend authentication endpoint & 22.04.2019 \\
+\hline
+3 & Backend case endpoint & 13.05.2019\\
+\hline
+4 & Applicant frontend login \& form & 03.06.2019\\
+\hline
+5 & Applicant frontend uploads & 24.06.2019\\
+\hline
+6 & Caseworker frontend overview \& login & 15.07.2019 \\
+\hline
+7 & Case worker frontend detail view & 05.08.2019\\
+\hline
 \end{tabular}
 \end{table}
 
+\newpage
 \subsection{Risks}
-\todo[inline]{look into more Risks, technical as well}
 \begin{table}[htb!]
-\begin{tabularx}{\textwidth}{llllXX}
-\textbf{Nr} & \textbf{Description} & \textbf{Probability} & \textbf{Criticality} & \textbf{Mitigation}                                                      & \textbf{Measure}                                                                             \\
+\begin{tabularx}{\textwidth}{l|X|l|X|X|X}
+\textbf{Nr} & \textbf{Description} & \textbf{Probability} & \textbf{Criticality} & \textbf{Mitigation} & \textbf{In case of occurrence} \\
 \hline
-R1          & Worker gets sick     & 10\%                 & high                 & Every worker should be able to replace the skill of an other in the team & Split up work not only according to someones skills but also to get them to learn new things \\
-            &                      &                      &                      &                                                                          &                                                                                              \\
-            &                      &                      &                      &                                                                          &                                                                                             
+R1 & Unintended data loss & 5\% & very high & Have a backup system in place which backups at least daily & Do a restore of the data lost \\
+\hline
+R2 & Data theft & 2\% & very high & Get external company to do a security audit of the software before going live & Report to responsible authority \\
+\hline
+R3 & Performance of the Application is not sufficient & 13\% & high & Keep on running load tests with enough concurrent users after each sprint (on each product increment) & Introduce test cases which also include load and performance tests \\
+\hline
+R4 & The complexity of the software is higher then expected & 15\% & high & Each design or architecture decision has to be taken as a team & Decide in the team which parts can be reduced in complexity\\
+\hline
+R5 & Law changes & 3\% & very high & Have a person responsible to control that the software works according to the law & Reprogram the parts which don't work according to the law anymore\\
+\hline
+R6 & Lack of communication in the team & 10\% & medium & Do some team events for strengthening the team & Discuss the issue in the team \\
+\hline
 \end{tabularx}
 \end{table}

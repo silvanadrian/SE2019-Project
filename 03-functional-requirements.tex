@@ -1,7 +1,7 @@
 \newpage
 \section{Functional requirements}
 
-The system contains a login function for both caseworkers and applicants. Caseworkers login to the system through an employee portal, while applicants login to the system using NemId.
+The system contains a login function for both caseworkers and applicants. Caseworkers login to the system through an employee portal, while applicants login to the system using NemId. The system validates eligible applicants through NemId.
 
 \vspace{2mm}
 
@@ -9,48 +9,19 @@ Once the applicant is logged in, they are presented with a form through which th
 
 \vspace{2mm}
 
-The system assigns submitted applications to available caseworkers at random. Processed applications are archived and saved in an immutable state. Cases are annotated based on their state, so whether a case is ongoing, processed or on-hold. 
-
-Once logged in, the caseworker is presented with their assigned cases, as well as a way to search all archived cases. Caseworkers have access to all data submitted in the cases.
+The system assigns submitted applications to available caseworkers at random. Processed applications are archived and saved in an immutable state. Cases are annotated based on their state, i.e. ongoing, archived or on hold. Applications from the same citizen are also annotated in order to detect possible duplicates.
 
 \vspace{2mm}
 
-\vspace{2mm}
-
-The OCM system checks for existing applications from applicant. If none are found the system annotate the case as new, otherwise it annotate the case as duplicate. The system sends application to a random caseworker.
+Once logged in, the caseworker is presented with their assigned cases, as well as a way to search all archived cases. More specifically, the caseworker cannot see ongoing cases not assigned to them, however all archived cases are search-able no matter the assigned caseworker. Caseworkers have access to all data submitted in the cases by the applicant. The caseworker can approve or reject applications. The state of an application is based on a majority vote from the caseworkers, meaning a processed case is assigned to another caseworker until a majority sentiment is met. The system keeps track of individual caseworkers decisions, however does not disclose these decisions to other caseworkers. When the majority vote has been reached, the application is finally either approved or rejected. If the case is approved, the system calculates the "loss of earnings" benefits based on the data contained in the application and the current applicable laws. The system informs the applicant of the final decision, containing the benefits calculations if approved, through an e-mail.
 
 \vspace{2mm}
 
-If the caseworker takes an unprocessed case, the person will be presented with all the provided documents from the applicant. If the caseworker decides the documents are falsified, he changes the status to falsified and either gets unassigned from the case or takes further action by contacting the legal authorities and provide all the necessary information, that is requested. After the falsification is handled, the case change status to prosecuted.
+A caseworker can set an application on hold. In such a case, the applications state must be changed to on hold and the system sends an e-mail to the applicant informing them of the applications state. The caseworker is able to write the message contained in the e-mail. The applicant is able to access the application form through a link in the e-mail.
 
-After the verification of the authenticity of the documents, the caseworker decides if the doctor confirmation is confirming that the legal requirements of the child's health status is met and the necessary conditions are present. 
-If the conditions are not met, the application gets rejected. 
-If the documents provided does not fulfill the necessary conditions, the caseworker can send an email directly from the system to the applicant, requesting the necessary documents for further processing of the application.
+\vspace{2mm}
 
-When satisfactory is met and all the conditions and legal documents are met, the caseworker goes on to verify that the inputted numbers are correct.
-
-If the caseworker picks an approval case, that is not handled by the caseworker himself. The caseworker goes through all documents provided and verifies that the applicant is permitted for loss of earnings. The caseworker goes on to verify that the inputted numbers are correct.
-If the caseworker decides, that the applicant is not permitted for loss of earnings, the caseworker sets the case to rejected.
-
-If the caseworker decides, that the applicant is permitted for loss of earning, the caseworker sets the case to approved.
-
----
-
-The applicant is presented with a form, that contains all the required input fields and required fields for document upload. After submitting the application the applicant will receive an email from the system confirming the submission.
-
-If the application needs some information, the applicant would receive a request per email and a link to the formula with the information that is previously provided. The application now has the possibility to input the requested information. 
-
-If the application is rejected, the applicant receives cause of rejection per email.
-
-If the application is approved, the applicant receives the acceptance confirmation per email. 
-
----
-
-If the application is rejected or accepted twice, the system would send the decision to the applicant and archive the case. 
-
----
-
-The supervisor can make an overview of all open cases and all archived cases. The supervisor can inspect the current information that belongs to a case and what caseworker it is assigned to.
+A caseworker can be assigned a supervisor role, giving them additional functions. A supervisor is able to see all ongoing and archived cases, as well as which caseworkers has been assigned to which case and the cases current state.
 \newpage
 \begin{figure}[htb!]
 	\includegraphics[width=\textwidth]{img/dcr}

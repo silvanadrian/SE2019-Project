@@ -6,5 +6,8 @@ Cases need to be persisted to track it's progress and for being able to check ol
 Employees and their data need to be persisted to be able to handle their security roles which give them access to different views or more rights on Cases.
 
 \subsubsection{Selecting a storage strategy}
-The data-access points are implemented as separate services, decoupling them from the server code. It allows for separate scaling and optimization on the storage clusters without the need to modify the server code itself, but only the service implementations. The data is expected to be well-structured, so the database technology should be relations based. The persistent storage should support replication (like MySQL replication) to ensure data reliability.
+The data-access points are implemented as separate services, decoupling them from the server code. It allows for separate scaling and optimization on the storage clusters without the need to modify the server code itself, but only the service implementations. The data is expected to be well-structured, so the database technology should be relations based. The database should support replication to ensure data reliability.
+
+\vspace{2mm}
+
 With this setup, we possibly suffer some performance, but that should be dealt with by including an efficient cache setup on the load balancing server. Other than that, when we have actually persistence, we would do that asynchronously, so the delay would be kept to a minimal.

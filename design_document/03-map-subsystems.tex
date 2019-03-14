@@ -1,3 +1,4 @@
+\newpage
 \subsection{Map subsystems to processors and components}
 \begin{figure}[htb!]
     \centering
@@ -5,3 +6,5 @@
     \caption{Deployment Diagram}
 \end{figure}
 
+We have chosen to have a separate email notification server, that would handle a queue of outgoing notifications and handles these notifications in an interval.
+Second, we have a low balancing system that will handle incoming requests and distribute the 

@@ -1,0 +1,16 @@
+\subsection{Key design goals}
+
+\subsubsection{Availability}
+The system has to provide high availability, because external factors makes it critical to be able to access the system at many hours a day. External factors are other organizations that rely on being able to access the information. 
+
+\subsubsection{Usability}
+The system will be available for a big target audience, with very different technical skill level and people that is under pressure, therefore it is critical, that the system is developed with a high standard of usability. Bad usability would lead the applicants to contact the caseworkers at the municipality directly and that would not be efficient and therefore costly. 
+
+\subsubsection{Performance}
+For increasing usability and make it more pleasant, it is critical, that it is not a slow system. The feedback for the end-user has to be fast and therefore that pages should load instantly. These requirements can be met by using static site generation and caching. 
+
+\subsubsection{Scalability}
+Efficient resource use is a key, because the target audience is big and there would be a lot of caseworkers that is using the system and for it to be an attractive system for them to use, it has to be efficient. Assuming a successful project, that would make the system have to handle multiple municipalities.
+
+\subsubsection{Persistence}
+It is crucial that the persistence storage system is reliable. Every action against a case has to be saved and the everything related to the case has to be stored for at least five years. Therefore replication of data has to be a concern from the beginning.

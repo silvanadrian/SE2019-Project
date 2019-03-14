@@ -1,1 +1,34 @@
+\newpage
 \subsection{Provide Access control}
+
+\begin{table}[htb!]
+\begin{tabularx}{\textwidth}{l|X|X|X|X}
+	\textbf{Roles} & \textbf{Case} & \textbf{Applicant} & \textbf{Caseworker} & \textbf{LossOfEarningCalc}\\
+	\hline
+	\textbf{Applicant} & 
+	\begin{compactitem}
+	    \item createCase
+	    \item uploadDocument
+	    \item submit
+	    \item updateCase
+	\end{compactitem}  &  login & & \\
+	\hline
+	\textbf{Caseworker} & 
+	\begin{compactitem} 
+	    \item getCases
+	    \item approve
+	    \item reject
+	    \item onHold
+	\end{compactitem} & & login & \\
+	\hline
+	\textbf{Supervisor} & getCases & & & \\
+	\hline
+	\textbf{System} & 
+	\begin{compactitem}
+	    \item assign
+	    \item archive
+	    \item annotateAsRejected
+	    \item annotateAsApproved
+	\end{compactitem} & & & calculate\\
+\end{tabularx}
+\end{table}

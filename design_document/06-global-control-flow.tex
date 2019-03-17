@@ -1,1 +1,2 @@
 \subsection{Designing the Global Control Flow}
+The \texttt{Calculator} module is a web service, which awaits requests from the \texttt{Case Manager Server}. Whenever a request is made to the \texttt{Calculator}, the request is allocated a new thread in order to enable parallel handling of multiple requests.

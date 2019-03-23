@@ -1,36 +1,39 @@
 \newpage
 \subsection{Provide Access control}
+
+% Internal system calls are not interesting and should not be modelled.
+
 For access control roles get used, System is here a specific role for only methods which the system itself should be able to run (no tempering by other Users).
 The \texttt{getCases} method here checks according to the Role of the User what cases should be returned.
 
 \begin{table}[htb!]
-\begin{tabularx}{\textwidth}{l|X|l|l|l}
-	\textbf{Roles} & \textbf{Case} & \textbf{Applicant} & \textbf{Caseworker} & \textbf{LossOfEarningCalc}\\
+\begin{tabularx}{\textwidth}{l|X|X}
+	\textbf{Roles} & \textbf{Case} & \textbf{Utility} \\
 	\hline
 	\textbf{Applicant} & 
 	\begin{compactitem}
-	    \item createCase
-	    \item uploadDocument
+	    \item create
 	    \item submit
-	    \item updateCase
-	\end{compactitem}  &  login & & \\
+	    \item update
+	\end{compactitem} & upload additional documentation \\
 	\hline
 	\textbf{Caseworker} & 
 	\begin{compactitem} 
-	    \item getCases
+	    \item get assigned cases
+	    \item get archived cases
 	    \item approve
 	    \item reject
-	    \item onHold
-	\end{compactitem} & & login & \\
+	    \item on hold
+	\end{compactitem} & \\
 	\hline
-	\textbf{Supervisor} & getCases & & & \\
-	\hline
-	\textbf{System} & 
+	\textbf{Supervisor} &
 	\begin{compactitem}
-	    \item assign
-	    \item archive
-	    \item annotateAsRejected
-	    \item annotateAsApproved
-	\end{compactitem} & & & calculate\\
+	    \item get all cases
+	    \item get archived cases
+	    \item get assigned caseworker
+	\end{compactitem} &
+	\begin{compactitem}
+	    \item change case state
+	\end{compactitem} \\
 \end{tabularx}
 \end{table}

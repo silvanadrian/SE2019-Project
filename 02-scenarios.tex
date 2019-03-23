@@ -10,8 +10,8 @@
 	\hline
 	\textbf{Flow of events} &
 	\begin{compactenum}
-		\item Alice, a parent, has a child with a serious chronic illness. She logs into the system as a citizen, fills out a form, attaches any relevant documentation and submits the application. There does not exist any prior applications from Alice, so the system annotates it as a new case.
-		\item Alice then has to wait for positive or negative response.
+		\item Alice, a parent, has a child with a serious chronic illness. She logs into the system as a citizen, fills out a form, attaches any relevant documentation and submits the application.
+		\item Alice waits for positive or negative response.
     \end{compactenum}\\
 	\hline
 \end{tabularx}
@@ -26,15 +26,15 @@
 	\hline
 	\textbf{Flow of events} &
 	\begin{compactenum}
-			\item Alice, a parent, has a child with a serious chronic illness. She logs into the system as a citizen, fills out a form, attaches any relevant documentation and submits the application. There does not exist any prior applications from Alice, so the system annotates it as a new case.
-			\item The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He validates documentation authenticity and data entered in form by Alice. He approves and submits the application.
+			\item Alice, a parent, has a child with a serious chronic illness. She logs into the system as a citizen, fills out a form, attaches any relevant documentation and submits the application.
+			\item There does not exist any prior applications from Alice, so the system sets the case to ongoing. The system assigns the application to caseworker Bob.
+			\item Bob logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He validates documentation authenticity and data entered in form by Alice. He finally approves the application.
 			\item The system annotates the case as approved and calculates the compensation based on the data contained in the application. The system sends a response to Alice's e-mail that her application was approved, including the details regarding her compensation. The system archives the case.
     \end{compactenum}\\
 	\hline
 \end{tabularx}
 \end{table}
 
-\newpage
 \subsection*{Application rejected}
 \begin{table}[htb!]
 \begin{tabularx}{\textwidth}{l|X}
@@ -44,15 +44,15 @@
 	\hline
 	\textbf{Flow of events} &
 	\begin{compactenum}
-	       \item Alice is a parent that has a child suffering from fever. She logs into the system as a citizen, fills out the application form, attaches any relevant documentation and submits the application. There does not exist any prior applications from Alice, hence the system annotates it as a new case.
-           \item  The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He validates documentation authenticity. The applicant is not eligible for compensation, so he rejects and submits the application.
+	       \item Alice is a parent that has a child suffering from fever. She logs into the system as a citizen, fills out the application form, attaches any relevant documentation and submits the application.
+	       \item There does not exist any prior applications from Alice, so the system sets the case to ongoing. The system assigns the application to caseworker Bob.
+	       \item Bob logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He validates documentation authenticity. The applicant is not eligible for compensation, so he rejects the application.
 	        \item The system annotates the case as rejected. The system sends a response to Alice's e-mail that her application was rejected. The system archives the case.
 	\end{compactenum}\\
 	\hline
 \end{tabularx}
 \end{table}
 
-\newpage
 \subsection*{Inquire additional information from applicant}
 \begin{table}[htb!]
 \begin{tabularx}{\textwidth}{l|X}
@@ -62,17 +62,17 @@
 	\hline
 	\textbf{Flow of events} &
 	\begin{compactenum}
-	        \item Alice, a parent, has a child with a serious chronic illness. She logs into the system as a citizen, fills out a form inadequately and submits the application. There does not exist any prior applications from Alice, so the system annotates it as a new case.
-	        \item The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. The application is filled out inadequately, so he writes an e-mail to Alice and inquire about missing information. He sets the case on hold and waits for a response from applicant.
-	        \item Alice fills out the missing data and submits the changes. 
-	        \item Bob resumes its progress and approves the application and submits it to the system.
+	        \item Alice, a parent, has a child with a serious chronic illness. She logs into the system as a citizen, fills out a form inadequately and submits the application.
+	        \item There does not exist any prior applications from Alice, so the system annotates it as a new case. The system assigns the application to caseworker Bob.
+	        \item He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. The application is filled out inadequately, so he writes an e-mail to Alice and inquire about missing information. He sets the case on hold and waits for a response from applicant.
+	        \item Alice accesses her case through a link in the e-mail. She fills out the missing data and submits the changes.
+	        \item Bob validates the newly added data. He resumes the case progress and approves the application.
 	        \item The system annotate the case as approved and calculates the compensation based on the data contained in the application. The system sends a response to Alice's e-mail that her application was approved, including the details regarding her compensation. The system archives the case.
 	\end{compactenum}\\
 	\hline
 \end{tabularx}
 \end{table}
 
-\newpage
 \subsection*{Duplicate application detected}
 \begin{table}[htb!]
 \begin{tabularx}{\textwidth}{l|X}
@@ -101,15 +101,14 @@
 	\textbf{Flow of events} &
 	\begin{compactenum}
 	        \item Alice, a parent, has a child with a fever. She logs into the system as a citizen, fills out a form, attaches any relevant documentation and submits the application. There does not exist any prior applications from Alice, so the system annotates it as a new case.
-	        \item The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He approves without validating contents and submits the application.
+	        \item The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He approves the application without properly validating contents, which is an erroneous way to process an application.
             \item The system annotate the case as approved and calculates the compensation based on the data contained in the application. The system sends a response to Alice's e-mail that her application was approved, including the details regarding her compensation. The system archives the case.
-            \item The case was wrongfully approved and therefore Alice would receive "loss of earning" even though she shouldn't.
+            \item The case was wrongfully approved and therefore Alice would receive "loss of earning" even though she should not.
 	\end{compactenum}\\
 	\hline
 \end{tabularx}
 \end{table}
 
-\newpage
 \subsection*{Duplicate application approved}
 \begin{table}[htb!]
 \begin{tabularx}{\textwidth}{l|X}
@@ -119,10 +118,11 @@
 	\hline
 	\textbf{Flow of events} &
     \begin{compactenum}
-	        \item Alice, a parent, has forgot she already receives "loss of earnings" compensation for her child. She logs into the system as a citizen and fills out a form, attaches any relevant documentation and submits the application. There exist prior applications from Alice, so the system annotates it as a duplicate case.
-	        \item The system assigns the application to caseworker Bob. He logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He approves without noticing this is a duplicate case and submits the application.
+	        \item Alice, a parent, has forgot she already receives "loss of earnings" compensation for her child. She logs into the system as a citizen and fills out a form, attaches any relevant documentation and submits the application.
+	        \item There exist prior applications from Alice, so the system annotates it as a duplicate case. The system assigns the application to caseworker Bob.
+	        \item Bob logs into the system as a caseworker. He picks Alice's application from an overview of assigned cases. He approves without noticing this is a duplicate case and wrongfully approves the application.
 	        \item The system annotate the case as approved and calculates the compensation based on the data contained in the application. The system sends a response to Alice's e-mail that her application was approved, including the details regarding her compensation. The system archives the case.
-	        \item The case was wrongfully approved and Alice would receive "loss of earning" even though she shouldn't
+	        \item The case was wrongfully approved and Alice would receive "loss of earning" even though she should not.
     \end{compactenum}\\
 	\hline
 \end{tabularx}

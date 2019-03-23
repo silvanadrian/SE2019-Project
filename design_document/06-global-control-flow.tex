@@ -1,2 +1,13 @@
 \subsection{Designing the Global Control Flow}
+
+\subsubsection{Calculator}
 The \texttt{Calculator} module is a web service, which awaits requests from the \texttt{Case Manager Server}. Whenever a request is made to the \texttt{Calculator}, the request is allocated a new thread in order to enable parallel handling of multiple requests.
+
+\subsubsection{User Management}
+\texttt{User Management} is procdure-driven, for changng of rights, creation of Users and so on.
+
+\subsubsection{Case Management}
+\texttt{Case Management} is a procedure-driven module, for creation of the cases as well as showing all the cases to the the case workers. Also for archiving the cases when they are finished.
+
+\subsubsection{Email Notifications}
+The \texttt{Email Notifications} module is a web service, which is event-driven. So when a case is rejected, approved or on hold the module will send a email to the applicant.

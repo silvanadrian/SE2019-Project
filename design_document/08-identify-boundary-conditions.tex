@@ -1,7 +1,6 @@
 \subsection{Identify Boundary Conditions}
     \subsubsection{System boot}
-    A \texttt{Supervisor} or \texttt{Caseworker} starts the \texttt{Case manager Server}, as soon as the Servers initialization is complete. Then the applicants, supervisors and caseworkers can initiate any of their use cases. 
+    A \texttt{Supervisor} has boot privileges for the \texttt{Case manager server}. The external services \texttt{Calculator}, \texttt{User management} and \texttt{Email Notifications}, must be running prior to server boot. The server establishes connection to the services through parameters set in server configuration.
     
     \subsubsection{System shutdown}
-    A \texttt{Supervisor} or \texttt{Caseworker} stops the \texttt{Case manager Server}, any still ongoing cases (in creation of applicants) will be stored.
-    As soon as the shutdown complete it won't be possible to create or modify any cases anymore.
+    A \texttt{Supervisor} has shutdown privileges for the \texttt{Case manager server}. The application submission portal is shutdown first, closing access for applicants to submit any additional cases. The caseworker portal broadcasts a server shutdown notice for a set amount of time, to allow caseworkers to finish any ongoing work. Once both clients are taken offline, the server can be shutdown.

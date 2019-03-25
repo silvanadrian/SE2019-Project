@@ -7,33 +7,33 @@ For access control roles get used, System is here a specific role for only metho
 The \texttt{getCases} method here checks according to the Role of the User what cases should be returned.
 
 \begin{table}[htb!]
-\begin{tabularx}{\textwidth}{l|X|X}
-	\textbf{Roles} & \textbf{Case} & \textbf{Utility} \\
+\begin{tabularx}{\textwidth}{l|X}
+	\textbf{Roles} & \textbf{Access} \\
 	\hline
 	\textbf{Applicant} & 
 	\begin{compactitem}
-	    \item create
-	    \item submit
-	    \item update
-	\end{compactitem} & upload additional documentation \\
+	    \item create case
+	    \item submit case
+	    \item update case
+	    \item upload additional documentation
+	\end{compactitem} \\
 	\hline
 	\textbf{Caseworker} & 
 	\begin{compactitem} 
 	    \item get assigned cases
-	    \item get archived cases
-	    \item approve
-	    \item reject
-	    \item on hold
-	\end{compactitem} & \\
+	    \item get all archived cases
+	    \item approve case
+	    \item reject case
+	    \item put case on hold
+	\end{compactitem} \\
 	\hline
 	\textbf{Supervisor} &
 	\begin{compactitem}
-	    \item get all cases
-	    \item get archived cases
+	    \item get all ongoing cases
+	    \item get all archived cases
 	    \item get assigned caseworker
-	\end{compactitem} &
-	\begin{compactitem}
 	    \item change case state
-	\end{compactitem} \\
+	    \item server administration
+	\end{compactitem}  \\
 \end{tabularx}
 \end{table}
